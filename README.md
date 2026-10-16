@@ -2,13 +2,19 @@
 
 DiskSweep 是一个 Windows 磁盘扫描与安全清理工具，采用“先扫描、再选择、最后确认”的流程。
 
-## 直接运行
+## 下载与运行
 
-运行：
+从 [Releases](https://github.com/Zppppp124/DiskSweep/releases/latest) 下载最新版：
 
-`I:\CODEX\DiskSweep\publish\DiskSweep.exe`
+`DiskSweep.exe`
 
 程序需要管理员权限，启动时会提示 UAC。EXE 为自包含单文件版本，不需要额外安装 .NET。
+
+当前版本：`v1.0.0`
+
+SHA-256：
+
+`047EDDA00D5DE0DB57F499854E4EB2D53066AD5F9856E8EEB3F518A8FD7205E0`
 
 ## 清理原则
 
@@ -30,8 +36,9 @@ DiskSweep 是一个 Windows 磁盘扫描与安全清理工具，采用“先扫�
 
 ## 构建
 
+在项目目录中运行：
+
 ```powershell
-cd I:\CODEX\DiskSweep
 dotnet publish .\DiskSweep.csproj -c Release -r win-x64 --self-contained true `
   -p:PublishSingleFile=true -p:EnableCompressionInSingleFile=true `
   -p:DebugType=None -p:DebugSymbols=false -o .\publish
