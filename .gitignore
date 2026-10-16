@@ -1,0 +1,10 @@
+bin/
+obj/
+publish/
+screenshot-*.png
+*.user
+*.suo
+.vs/
+.idea/
+.vscode/
+*.log

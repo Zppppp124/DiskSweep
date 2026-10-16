@@ -1,0 +1,55 @@
+<Window x:Class="DiskSweep.DetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="清理明细"
+        Height="620"
+        Width="900"
+        MinHeight="440"
+        MinWidth="700"
+        WindowStartupLocation="CenterOwner"
+        Background="#0B1117"
+        Foreground="#E8F0F8"
+        FontFamily="Microsoft YaHei UI">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,0,0,12">
+            <TextBlock x:Name="TitleText" FontSize="19" FontWeight="Bold" />
+            <TextBlock x:Name="SummaryText" Foreground="#8CA2B4" Margin="0,3,0,0" />
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="#111B24" BorderBrush="#20303D" BorderThickness="1"
+                CornerRadius="8">
+            <DataGrid x:Name="DetailsGrid" Margin="1" Background="#0E171F"
+                      Foreground="#DCE8F2" BorderThickness="0"
+                      GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#1A2936"
+                      HeadersVisibility="Column" RowBackground="#0E171F"
+                      AlternatingRowBackground="#101C25" AutoGenerateColumns="False"
+                      IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="名称" Binding="{Binding Name}" Width="2*" />
+                    <DataGridTextColumn Header="类型" Binding="{Binding Kind}" Width="140" />
+                    <DataGridTextColumn Header="大小" Binding="{Binding SizeText}" Width="110" />
+                    <DataGridTextColumn Header="最后修改" Binding="{Binding LastWriteText}" Width="140" />
+                    <DataGridTextColumn Header="路径" Binding="{Binding Path}" Width="3*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <Grid Grid.Row="2" Margin="0,12,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="只读预览。关闭窗口不会修改任何文件。"
+                       Foreground="#8CA2B4" VerticalAlignment="Center" />
+            <Button Grid.Column="1" Content="关闭" Width="90" Height="34"
+                    Click="Close_Click" Background="#172532" Foreground="#E8F0F8"
+                    BorderBrush="#294052" BorderThickness="1" />
+        </Grid>
+    </Grid>
+</Window>
